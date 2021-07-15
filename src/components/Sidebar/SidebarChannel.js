@@ -11,13 +11,13 @@ const SidebarChannel = () => {
         }
 
         const showChatScreen = (e) => {
+            e.preventDefault();
             chatScreenData.type = e.currentTarget.type;
             chatScreenData.receivers = [{ 
                 id: e.currentTarget.id,
                 name: e.currentTarget.getAttribute("name"),
                 type: e.currentTarget.type,
             }]
-            console.log(chatScreenData)
         }
         
         return(

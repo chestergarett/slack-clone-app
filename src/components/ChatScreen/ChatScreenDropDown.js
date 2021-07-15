@@ -1,7 +1,7 @@
 import "./ChatScreenDropDown.css";
 import { TiPin } from "react-icons/ti";
 import { TiPlus } from "react-icons/ti";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../../api/user-context";
 import user1 from "../../assets/user1.png";
 
@@ -28,8 +28,6 @@ const ChatScreenDropDown = () => {
       filteredValue[0] = prevValue[0].filter(el => { return el.id.toString() !== e.target.id })
       return filteredValue;
     })
-   
-    console.log(receivers)
   }
 
  
@@ -45,10 +43,6 @@ const ChatScreenDropDown = () => {
       prevValue[0].unshift(removedReceiver);
       return prevValue;
     })
-
-    console.log(receivers)
-    console.log(removedReceiver)
-
   }
 
 

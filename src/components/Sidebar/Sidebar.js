@@ -6,12 +6,13 @@ import 'boxicons';
 
 import SidebarChannel from './SidebarChannel';
 import SidebarDM from './SidebarDM';
-
+import AddChannel from '../AddChannel/AddChannel';
 
 const Sidebar = () => {
     const {chatScreenData} = useContext(UserContext) //modify current receiver when EDIT button is clicked
     const [toggleChannel, setToggleChannel] = useState(false)
     const [toggleDM, setToggleDM] = useState(false)
+    const [addChannelView, setAddChannelView] = useState(false)
 
     const toggleChannelHandler = () => {
         setToggleChannel(prevValue => !prevValue)
@@ -21,49 +22,9 @@ const Sidebar = () => {
         setToggleDM(prevValue => !prevValue)
     }
 
-    const {userListHeaders,channelList, rawUserList, setUpHeaders} = useContext(UserContext);
-
-    useEffect( () => {
-        const storage = localStorage.getItem('user');
-        if(storage){
-            const {"access-token": accessToken, client, expiry, uid} =  JSON.parse(storage);
-            setUpHeaders(accessToken,client,expiry,uid);
-        }
-        axios.get('http://206.189.91.54//api/v1/channels', {headers: userListHeaders})
-        .then(res => {
-            const {data} = res;
-            if(data.errors = "No available channels"){ 
-                console.log(data.errors);
-                return 
-            }
-            channelList.push(data)
-            console.log(channelList)
-        })
-        .catch(error => console.error('Error fetching data from API'))
-        }
-        , []
-    )
-
-    useEffect( () => {
-        const storage = localStorage.getItem('user');
-        if(storage){
-            const {"access-token": accessToken, client, expiry, uid} =  JSON.parse(storage);
-            setUpHeaders(accessToken,client,expiry,uid);
-        }
-        axios.get('http://206.189.91.54//api/v1/users', {headers: userListHeaders})
-        .then(res => {
-            const {data} = res;
-            if(data.length == 0){ 
-                console.log("No available users");
-                return 
-            }
-            rawUserList.push(data.data)
-            console.log(rawUserList)
-        })
-        .catch(error => console.error('Error fetching data from API'))
-        }
-        , []
-    )
+    const addChannelViewHandler = () => {
+        setAddChannelView(true)
+    }
 
     const setChatScreenData = () => {
         chatScreenData["type"] = "new"
@@ -104,8 +65,11 @@ const Sidebar = () => {
                     </div>
                     <ul className="sub-menu">
                         <li><box-icon name='lock-alt' ></box-icon>batch 9</li>
-                        {toggleChannel && <SidebarChannel/>}
-                        <li><box-icon name='lock-alt' ></box-icon>Add channels</li>
+                            {toggleChannel && <SidebarChannel/>}
+                        <li onClick={setAddChannelView}>
+                            {addChannelView && <AddChannel/>}
+                            <box-icon name='lock-alt' ></box-icon>Add channels
+                        </li>
                     </ul>
                 </li>
                 <li>

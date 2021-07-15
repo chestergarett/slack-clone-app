@@ -2,6 +2,7 @@ import { ContactlessOutlined } from "@material-ui/icons";
 import { useContext } from "react";
 import axios from 'axios';
 import UserContext from "../../api/user-context.js";
+import {v4} from 'uuid';
 
 const SidebarDM = () => {
   
@@ -48,7 +49,7 @@ const SidebarDM = () => {
         const userName = user.name ? user.name : user.email;
         return (
           <li
-            key={user.id}
+            key={v4()}
             id={user.id}
             name={userName}
             type="User"

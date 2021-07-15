@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./UserSettings.css";
 import userImage from "../../assets/userImage.jpg";
