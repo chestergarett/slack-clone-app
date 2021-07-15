@@ -4,10 +4,17 @@ import UserContext from "../../api/user-context";
 import axios from "axios";
 import SendIcon from "@material-ui/icons/Send";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
+<<<<<<< HEAD
 
 const ChatBoxSend = () => {
   const { userDetails, userListHeaders, chatScreenData } =
     useContext(UserContext);
+=======
+
+
+const ChatBoxSend = () => {
+  const { userDetails, userListHeaders, chatScreenData } = useContext(UserContext);
+>>>>>>> main
   const { receivers } = chatScreenData;
   const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(true);
@@ -20,6 +27,12 @@ const ChatBoxSend = () => {
 
   const sendMessageHandler = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
+=======
+    console.log(userDetails);
+    console.log(receivers);
+
+>>>>>>> main
     receivers.forEach((receiver) => {
       const sendMessageConfig = {
         method: "post",
@@ -28,15 +41,19 @@ const ChatBoxSend = () => {
         data: {
           receiver_id: receiver.id,
           receiver_class: receiver.type,
-          body: JSON.stringify(message),
+          body: message,
         },
         redirect: "follow",
       };
 
       axios(sendMessageConfig)
         .then((response) => {
+<<<<<<< HEAD
           // alert(`Message Sent, ${JSON.stringify(response.data)}`);
           JSON.stringify(response.data);
+=======
+          console.log(response.data);
+>>>>>>> main
           textBox.current.innerHTML = "";
         })
         .catch(function (error) {
