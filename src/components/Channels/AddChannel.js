@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react';
-import {TextField, InputAdornment, Button} from '@material-ui/core';
+import {TextField, InputAdornment, Button, Snackbar } from '@material-ui/core';
 import UserContext from '../../api/user-context.js'
 import Modal from '../UI/Modal';
 import {v4} from 'uuid';
@@ -21,6 +21,7 @@ const AddChannel = (props) => {
     }
 
     const addChannelHander = (e) => {
+        props.onClose()
         axios.post('http://206.189.91.54//api/v1/channels', formData,{headers: userListHeaders})
         .then(res => {
             channelDetails.push(res)
@@ -31,6 +32,7 @@ const AddChannel = (props) => {
     const closeModalHandler = () => {    
         props.onClose()
     }
+
 
     return (
         <>

@@ -135,9 +135,9 @@ const Sidebar = () => {
                 <span className="links_name">Channels</span>
               </div>
             </div>
-            <ul className="sub-menu">
+            <ul className="sub-menu channel-list">
               <li onClick={openChannelHander}>
-                  <box-icon name="lock-alt"/>Add channels
+                  <box-icon name="message-alt-add"/>Add channels
               </li>
               {toggleChannel && <SidebarChannel />}
             </ul>

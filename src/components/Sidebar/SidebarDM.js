@@ -31,7 +31,7 @@ const SidebarDM = () => {
   return (
     <>
       <input
-        style={{ width: "100%" }}
+        style={{ width: "100%", background: "transparent", boxShadow: '0', border: '0', color: 'white' }}
         type="text"
         placeholder="search user"
         onChange={(event) => {

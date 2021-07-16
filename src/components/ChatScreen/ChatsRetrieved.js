@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import "./ChatsRetrieved.css";
 import UserContext from "../../api/user-context";
 import user1 from "../../assets/user1.png";
+import user2 from "../../assets/user2.png";
 import axios from "axios";
 import parse from "html-react-parser";
 
@@ -67,11 +68,22 @@ const ChatsRetrieved = () => {
   };
 
 
-  //call retrive message only when receivers change
+  //call retrieve message only when receivers change
   useEffect(() => {
     setIsLoading(true);
     retrieveMessage();
   }, [chatScreenData.receivers]);
+
+  //autoScroll to bottom
+  const messagesEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", overflowX: "hidden" })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages]);
 
 
     return(
@@ -88,7 +100,7 @@ const ChatsRetrieved = () => {
                             return (
                                 <li key={message.id} className="chat-item-container">
                                     <div className="chat__user-image">
-                                        <img src={user1} alt="sender image" />
+                                        {message.sender.id === userDetails[0].id ? <img src={user2} alt="user image" /> : <img src={user1} alt="sender image" />}
                                     </div>
                                     <div className="chat-item">
                                         <div className="chat-item__header">
@@ -102,10 +114,12 @@ const ChatsRetrieved = () => {
                                 </li>
                             )
                         })}
+                        <span ref={messagesEndRef}/>
                     </ul>
                     :
                     <div className="no-message__alert"><h5>No available message.</h5></div>
                 )
+                
             }
         </div>
     )

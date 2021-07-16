@@ -54,15 +54,6 @@ a:visited {
   padding-top: 10px;
 }
 
-/* .sidebar .channel-details i{
-    font-size: 30px;
-    color: #fff;
-    min-width: 50px;
-    text-align: right;
-    line-height: 50px;
-    margin-left: 75px;
-} */
-
 .sidebar .channel-details .channel_name {
   font-size: 20px;
   color: #fff;
@@ -102,15 +93,6 @@ a:visited {
   background: #360d36;
 }
 
-/*ABOUT TO CHANGE*/
-/* .sidebar .nav-links li i{
-    height: 50px;
-    min-width: 78px;
-    text-align: center;
-    line-height: 50px;
-    color: #fff;
-    font-size: 20px;
-} */
 
 .sidebar .nav-links li box-icon {
   height: 20px;
@@ -153,4 +135,16 @@ a:visited {
 
 .sidebar.close .nav-links li .sub-menu {
   position: absolute;
+}
+
+.channel-list{
+  height: 8rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.channel-list::-webkit-scrollbar {
+display: none;
 }

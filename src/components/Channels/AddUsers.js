@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext,useState} from 'react';
 import UserContext from '../../api/user-context.js';
 import classes from './AddChannel.module.css';
 import axios from 'axios';
@@ -11,11 +11,10 @@ const AddUsers = (props) => {
     const {userListHeaders,rawUserList, additionalMembers, chatScreenData} = useContext(UserContext)
     
     const{receivers} = chatScreenData
-    console.log(chatScreenData)
     
     const userArrayHandler = (e) => {
         additionalMembers.push(e.target.id)
-        console.log(additionalMembers)
+
     }
 
     const addUserHandler = () => {
@@ -25,13 +24,19 @@ const AddUsers = (props) => {
         }
 
         axios.post("http://206.189.91.54//api/v1/channel/add_member",formData, {headers:userListHeaders})
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            }
+        )
         .catch(error => console.error())
 
         additionalMembers.length = 0
+        props.onClose()
     }
 
+
     return (
+        <>
         <Modal onClose={props.onClose}>
                 <div className={classes.container}>
                     <Button type="button" className={classes.close} size="large" onClick={props.onClose}>×</Button>
@@ -50,6 +55,7 @@ const AddUsers = (props) => {
                     </div>
                 </div>
         </Modal>
+        </>
     )
 }
 
