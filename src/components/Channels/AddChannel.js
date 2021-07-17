@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
-import {TextField, InputAdornment, Button, Snackbar } from '@material-ui/core';
+import {TextField, InputAdornment, Button, Snackbar, IconButton} from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import UserContext from '../../api/user-context.js'
 import Modal from '../UI/Modal';
 import {v4} from 'uuid';
@@ -21,18 +22,18 @@ const AddChannel = (props) => {
     }
 
     const addChannelHander = (e) => {
-        props.onClose()
         axios.post('http://206.189.91.54//api/v1/channels', formData,{headers: userListHeaders})
         .then(res => {
             channelDetails.push(res)
+            console.log(res)
+            props.onClose()
         })
-        .catch(error => console.error(error.response.data))
+        .catch(error => alert("Unable to add channel. Please review inputs."))
     }
 
     const closeModalHandler = () => {    
         props.onClose()
     }
-
 
     return (
         <>

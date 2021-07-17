@@ -1,6 +1,6 @@
 import {useContext,useState} from 'react';
 import UserContext from '../../api/user-context.js';
-import classes from './AddChannel.module.css';
+import classes from './AddUsers.module.css';
 import axios from 'axios';
 import {Button} from '@material-ui/core';
 import Modal from '../UI/Modal';
@@ -28,7 +28,7 @@ const AddUsers = (props) => {
             console.log(res)
             }
         )
-        .catch(error => console.error())
+        .catch(error => alert("Unable to add users to channel. Please review inputs."))
 
         additionalMembers.length = 0
         props.onClose()

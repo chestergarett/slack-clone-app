@@ -24,7 +24,7 @@ const SignupBody = () => {
                 userDetails.push(data);
                 history.push('/MainPage')
             })
-            .catch(error => console.error('Error fetching data from API'));
+            .catch(error => alert("Unable to create account. Please review inputs."));
     }
 
     

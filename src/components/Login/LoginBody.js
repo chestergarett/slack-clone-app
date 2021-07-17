@@ -37,7 +37,7 @@ const LoginBody = () => {
         localStorage.setItem("userDetails", JSON.stringify(...userDetails));
         history.push("/MainPage");
       })
-      .catch((error) => console.error("Error fetching data from API"));
+      .catch((error) => alert("Invalid credentials: Email/Password"));
   };
 
   return (
