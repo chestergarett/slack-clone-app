@@ -22,7 +22,7 @@ const LoginBody = () => {
   const loginUser = () => {
     const oldUser = { email: formData.email, password: formData.password };
     axios
-      .post("http://206.189.91.54//api/v1/auth/sign_in", oldUser)
+      .post("https://206.189.91.54//api/v1/auth/sign_in", oldUser)
       .then((res) => {
         const { data } = res.data;
         const {

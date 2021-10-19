@@ -22,7 +22,7 @@ const AddChannel = (props) => {
     }
 
     const addChannelHander = (e) => {
-        axios.post('http://206.189.91.54//api/v1/channels', formData,{headers: userListHeaders})
+        axios.post('https://206.189.91.54//api/v1/channels', formData,{headers: userListHeaders})
         .then(res => {
             channelDetails.push(res)
             console.log(res)

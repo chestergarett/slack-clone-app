@@ -24,7 +24,7 @@ const ChatBoxSend = () => {
     receivers.forEach((receiver) => {
       const sendMessageConfig = {
         method: "post",
-        url: "http://206.189.91.54//api/v1/messages",
+        url: "https://206.189.91.54//api/v1/messages",
         headers: userListHeaders,
         data: {
           receiver_id: receiver.id,

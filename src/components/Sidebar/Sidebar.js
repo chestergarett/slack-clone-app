@@ -50,7 +50,7 @@ const Sidebar = () => {
    
   useEffect(() => {
     axios
-      .get("http://206.189.91.54//api/v1/channels", {
+      .get("https://206.189.91.54//api/v1/channels", {
         headers: userListHeaders,
       })
       .then((res) => {
@@ -62,7 +62,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     axios
-      .get("http://206.189.91.54//api/v1/users", { headers: userListHeaders })
+      .get("https://206.189.91.54//api/v1/users", { headers: userListHeaders })
       .then((res) => {
         const { data } = res;
         if (data.length == 0) {
@@ -77,7 +77,7 @@ const Sidebar = () => {
 
   const retrieveAllMessages = () => {
     for (const list of rawUserList[0]) {
-      axios.get("http://206.189.91.54//api/v1/messages", {
+      axios.get("https://206.189.91.54//api/v1/messages", {
       headers: userListHeaders, 
       params:  {
       "sender_id": userDetails[0].id.toString(),
