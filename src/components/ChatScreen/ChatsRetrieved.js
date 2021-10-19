@@ -52,7 +52,7 @@ const ChatsRetrieved = () => {
         .get("http://206.189.91.54//api/v1/messages", {
           headers: userListHeaders,
           params: {
-            sender_id: userDetails[0].id.toString(),
+            sender_id: userDetails[0]?.id.toString(),
             receiver_class: "User",
             receiver_id: chatScreenData.receivers[0].id,
           },
