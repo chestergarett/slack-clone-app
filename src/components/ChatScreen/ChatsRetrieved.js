@@ -32,7 +32,7 @@ const ChatsRetrieved = () => {
     
     if (storage && storage2 && storage.type!=="new") {
       axios
-        .get("https://206.189.91.54//api/v1/messages", {
+        .get("http://206.189.91.54//api/v1/messages", {
           headers: userListHeaders,
           params: {
             sender_id: storage2.id,
@@ -49,7 +49,7 @@ const ChatsRetrieved = () => {
         .catch((error) => error);
     }else if (chatScreenData.receivers.length !== 0) {
       axios
-        .get("https://206.189.91.54//api/v1/messages", {
+        .get("http://206.189.91.54//api/v1/messages", {
           headers: userListHeaders,
           params: {
             sender_id: userDetails[0]?.id.toString(),

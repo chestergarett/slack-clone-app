@@ -23,7 +23,7 @@ const AddUsers = (props) => {
             member_id: additionalMembers.toString(),
         }
 
-        axios.post("https://206.189.91.54//api/v1/channel/add_member",formData, {headers:userListHeaders})
+        axios.post("http://206.189.91.54//api/v1/channel/add_member",formData, {headers:userListHeaders})
         .then(res => {
             console.log(res)
             }

@@ -18,7 +18,7 @@ const SignupBody = () => {
     
     const loginUser = () => {
             const newUser = {email: formData.email, password: formData.password, password_confirmation: formData.password_confirmation}
-            axios.post('https://206.189.91.54//api/v1/auth/', newUser)
+            axios.post('http://206.189.91.54//api/v1/auth/', newUser)
             .then(res => {
                 const {data} = res.data;
                 userDetails.push(data);
