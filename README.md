@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# SLACK CLONE APP
 
 Slack clone concept via React.
+
+### see site here: http://slack-clone-group5.herokuapp.com/
 
 sample account:
 email: chestergarett19_1@gmail.com
